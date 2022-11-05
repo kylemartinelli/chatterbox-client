@@ -18,14 +18,9 @@ var MessageView = {
 
   render: _.template(`
     <div class="chat">
-<<<<<<< HEAD
       <div class="username" value="<%-username %>"><%-username %></div>
       <div class="message"><%-message %></div>
       <div><%-roomname %></div>
-=======
-      <div class="username"><%=username %></div>
-      <div><%-message %></div>
->>>>>>> 13bbb7eadef504c7db16c012f26243eaddeef6cf
     </div>
   `)
 };

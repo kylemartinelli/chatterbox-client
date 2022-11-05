@@ -18,7 +18,6 @@ var FormView = {
     // TODO: Currently, this is all handleSubmit does.
     // Make this function actually send a message to the Parse API.
     var message = {
-<<<<<<< HEAD
       username: App.username,
       text: $('#message')[0].value,
       roomname: Rooms.currentRoom
@@ -33,14 +32,6 @@ var FormView = {
         RoomsView.render();
       });
     });
-    // Parse.create()
-=======
-      username: '',
-      text: $('#message')[0].value,
-      roomname: "Breakout Room 12"
-    };
-    Parse.create(message, () => {});
->>>>>>> 13bbb7eadef504c7db16c012f26243eaddeef6cf
   },
 
   setStatus: function(active) {
