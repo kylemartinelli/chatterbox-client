@@ -17,10 +17,10 @@ var FormView = {
     // TODO: Currently, this is all handleSubmit does.
     // Make this function actually send a message to the Parse API.
     var message = {
-      username: "Kyle and James",
+      username: '',
       text: $('#message')[0].value,
       roomname: "Breakout Room 12"
-    }
+    };
     Parse.create(message, () => {});
   },
 
