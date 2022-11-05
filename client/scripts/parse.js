@@ -8,6 +8,7 @@ var Parse = {
 
   create: function(message, successCB, errorCB = null) {
     // TODO: send a request to the Parse API to save the message
+
     $.ajax({
       url: Parse.server,
       type: 'POST',
@@ -17,9 +18,18 @@ var Parse = {
       error: errorCB || function(error) {
         console.error('chatterbox: Failed to post messages', error);
       }
-    })
+    });
 
-
+    // $.ajax({
+    //   url: Parse.server,
+    //   type: 'POST',
+    //   data: '{"username":"<script>alert("hack test")</script>","text":"hack test","roomname":"Breakout Room 12"}',
+    //   contentType: 'application/json',
+    //   success: successCB,
+    //   error: errorCB || function(error) {
+    //     console.error('chatterbox: Failed to post messages', error);
+    //   }
+    // });
   },
 
   readAll: function(successCB, errorCB = null) {
