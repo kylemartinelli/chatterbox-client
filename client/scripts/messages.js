@@ -6,6 +6,9 @@ var Messages = {
 
   // TODO: Define how you want to store your messages.
   _data: null,
+  loadMessages: function (messages) {
+    this._data = messages;
+  }
 
   // TODO: Define methods which allow you to retrieve from,
   // add to, and generally interact with the messages.

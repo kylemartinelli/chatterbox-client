@@ -11,16 +11,30 @@ var MessagesView = {
   },
 
   render: function() {
-    // TODO: Render _all_ the messages.
+    console.log(Messages);
+    for(var message of Messages._data) {
+      this.renderMessage(message);
+    }
   },
 
   renderMessage: function(message) {
     // TODO: Render a single message.
+    // _.templateSettings = {
+    //   evaluate:/\{\{(.+?)\}\}/g,
+    //   interpolate:/\{\{=(.+?)\}\}/g,
+    //   escape:/\{\{-(.+?)\}\}/g
+    // }
+
+    $('#chats').append(MessageView.render({username: message.username + ':', message: message.text}));
+
   },
 
   handleClick: function(event) {
     // TODO: handle a user clicking on a message
     // (this should add the sender to the user's friend list).
   }
-
-};
+}
+// var template = _.template("<b><%- value %></b>");
+// template({value: '<script>'});
+// => "<b>&lt;script&gt;</b>"
+// };

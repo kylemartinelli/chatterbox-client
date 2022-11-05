@@ -4,19 +4,31 @@
 
 var Parse = {
 
-  server: `https://app-hrsei-api.herokuapp.com/api/chatterbox/messages/${window.CAMPUS}`,
+  server: `https://app-hrsei-api.herokuapp.com/api/chatterbox/messages/${window.CAMPUS}`, // campus is 'RFP'??
 
   create: function(message, successCB, errorCB = null) {
     // TODO: send a request to the Parse API to save the message
+    $.ajax({
+      url: Parse.server,
+      type: 'POST',
+      data: JSON.stringify({ username: message.username, text: message.text, roomname: message.roomname}),
+      contentType: 'application/json',
+      success: successCB,
+      error: errorCB || function(error) {
+        console.error('chatterbox: Failed to post messages', error);
+      }
+    })
+
+
   },
 
   readAll: function(successCB, errorCB = null) {
     $.ajax({
-      url: Parse.server,
-      type: 'GET',
-      data: { order: '-createdAt' },
-      contentType: 'application/json',
-      success: successCB,
+      url: Parse.server, // The Parse API or other website to which we want to send a request
+      type: 'GET', // HTTp verb - tells the server whata ction to take
+      data: { order: '-createdAt' }, // data sent to the server, which specifies extra options for how the "get" should happen
+      contentType: 'application/json', // MIME-type format of the content you are providing to the server
+      success: successCB, //ASYNC non-blocking
       error: errorCB || function(error) {
         console.error('chatterbox: Failed to fetch messages', error);
       }
@@ -24,3 +36,5 @@ var Parse = {
   }
 
 };
+
+
